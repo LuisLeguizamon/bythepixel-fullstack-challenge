@@ -4,14 +4,14 @@ services:
         build:
             context: ./docker
         ports:
-            - "80:80"
+            - "8001:80"
         volumes:
             - .:/var/www/html
 
     mysql:
         image: mysql:8
         ports:
-            - "3306:3306"
+            - "3308:3306"
         volumes:
             - mysql_data:/var/lib/mysql
             - ./docker:/docker-entrypoint-initdb.d
