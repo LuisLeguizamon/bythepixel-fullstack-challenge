@@ -35,6 +35,6 @@ async function getWeather() {
     <h1>Weather</h1>
     <p>User: {{ user.name }}</p>
     <p>Location: {{ weather.name }}, {{ weather.sys.country }}</p>
-    <p>Temperature: {{ weather.main.temp }}</p>
+    <p>Temperature: {{ weather.main.temp }} K</p>
   </main>
 </template>
