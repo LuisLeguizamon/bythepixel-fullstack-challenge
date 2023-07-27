@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\Weather\WeatherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +20,5 @@ Route::get('/', function () {
         'users' => \App\Models\User::all(),
     ]);
 });
+
+Route::get('/weather/{user}', [WeatherController::class, 'show'])->name('weather.show');
