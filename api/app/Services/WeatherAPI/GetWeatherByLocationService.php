@@ -15,7 +15,6 @@ class GetWeatherByLocationService
         $query = [
             'lat' => $latitude,
             'lon' => $longitude,
-            'appid' => config('weather_api.api_key'),
         ];
 
         return (new WeatherAPIHttpClient)->getWeatherByLocation($query);

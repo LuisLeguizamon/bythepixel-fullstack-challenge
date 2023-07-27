@@ -20,7 +20,18 @@ class WeatherAPIHttpClient extends Client
      */
     public function getWeatherByLocation($query = []): ResponseInterface
     {
-        return $this->request('GET', '/data/2.5/weather', ['query' => $query]);
+        return $this->request(
+            'GET',
+            '/data/2.5/weather',
+            ['query' => $this->addApiKeyToQueryParam($query)]
+        );
+    }
+
+    private function addApiKeyToQueryParam(array $query)
+    {
+        $query['appid'] = config('weather_api.api_key');
+
+        return $query;
     }
 
 }
