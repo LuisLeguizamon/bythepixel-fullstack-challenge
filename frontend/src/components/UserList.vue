@@ -32,7 +32,7 @@ export default {
     <template v-if="users">
       <ul v-if="users">
         <li v-for="user in users" :key="user.id">
-          {{ user.name }} - Location Temperature: {{ user.weather_info.temperature_in_kelvin }} K
+          {{ user.user_name }} - Location Temperature: {{ user.temperature_in_kelvin }}
           <router-link :to="'/weather/' + user.id">Show More</router-link>
         </li>
       </ul>

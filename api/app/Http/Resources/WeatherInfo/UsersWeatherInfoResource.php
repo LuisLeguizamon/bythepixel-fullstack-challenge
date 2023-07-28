@@ -14,6 +14,10 @@ class UsersWeatherInfoResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'user_name' => $this->name,
+            'temperature_in_kelvin' => $this->weatherInfo->temperature_in_kelvin.' K',
+        ];
     }
 }
