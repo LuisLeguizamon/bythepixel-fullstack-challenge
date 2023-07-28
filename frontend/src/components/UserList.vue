@@ -10,7 +10,8 @@ export default {
 
   methods: {
     async getUsers() {
-      const url = "http://localhost:8001";
+      const base_url = "http://localhost:8001";
+      const url = base_url + "/users/weather-info";
       try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -31,8 +32,8 @@ export default {
     <template v-if="users">
       <ul v-if="users">
         <li v-for="user in users" :key="user.id">
-          {{ user.name }}
-          <router-link :to="'/weather/' + user.id">Show Weather</router-link>
+          {{ user.name }} - Location Temperature: {{ user.weather_info.temperature_in_kelvin }} K
+          <router-link :to="'/weather/' + user.id">Show More</router-link>
         </li>
       </ul>
     </template>

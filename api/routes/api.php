@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Weather\UserWeatherInfoController;
 use App\Http\Controllers\Api\Weather\WeatherController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,5 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/users/weather-info', [UserWeatherInfoController::class, 'index'])->name('weather.index');
 Route::get('/weather/{user}', [WeatherController::class, 'show'])->name('weather.show');
