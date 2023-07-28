@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 export default {
   data: () => ({
-    users: null,
+    users: null as any,
   }),
 
   created() {

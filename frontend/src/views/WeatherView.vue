@@ -2,8 +2,8 @@
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 
-let weather = ref({});
-let user = ref("");
+let weather: any = ref({});
+let user: any = ref("");
 
 onCreate();
 
