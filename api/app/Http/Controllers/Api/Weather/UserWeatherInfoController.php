@@ -3,17 +3,13 @@
 namespace App\Http\Controllers\Api\Weather;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\WeatherInfo\UsersWeatherInfoResource;
 use App\Models\User;
-use App\Services\WeatherAPI\GetWeatherByLocationService;
 
 class UserWeatherInfoController extends Controller
 {
-    public function index(User $user)
+    public function index()
     {
-        $users = User::with('weatherInfo')->get();
-
-        return response()->json([
-            'users' => $users,
-        ]);
+        return UsersWeatherInfoResource::collection(User::with('weatherInfo')->get());
     }
 }

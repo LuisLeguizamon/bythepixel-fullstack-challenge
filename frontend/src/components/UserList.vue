@@ -17,8 +17,8 @@ export default {
         if (!response.ok) {
           throw new Error("Network error");
         }
-        const data = await response.json();
-        this.users = data.users;
+        const responseData = await response.json();
+        this.users = responseData.data;
       } catch (error) {
         alert("Error getting users: " + error);
       }
