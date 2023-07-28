@@ -27,7 +27,6 @@ class CallProcessWeatherInfoForAllUsersJob implements ShouldQueue
      */
     public function handle(): void
     {
-        $callProcess = new CallProcessWeatherInfoForAllUsersAction;
-        $callProcess();
+        (new CallProcessWeatherInfoForAllUsersAction)();
     }
 }
