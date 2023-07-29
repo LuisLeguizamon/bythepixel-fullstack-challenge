@@ -30,10 +30,32 @@ async function getWeather() {
 </script>
 
 <template>
-  <main class="bg-gradient-to-r from-blue-100 to-cyan-100 flex justify-center">
+  <main
+    class="bg-gradient-to-r from-blue-100 to-cyan-100 flex justify-center grid grid-cols-2 p-5"
+  >
     <UserWeatherInfoCard
       :weather-info="weatherInfo"
       :showDetailBtn="false"
     ></UserWeatherInfoCard>
+    <div
+      class="text-slate-500 bg-white opacity-70 mx-5 my-5 pt-5 pb-3 pl-10 grid grid-cols-2 rounded-lg overflow-hidden shadow-lg"
+    >
+      <div>
+        <p class="font-medium text-xl">
+          {{ weatherInfo.description }}
+        </p>
+      </div>
+      <div></div>
+      <div>
+        <p class="text-medium">
+          <span class="font-medium">Humidity </span>{{ weatherInfo.humidity }}
+        </p>
+      </div>
+      <div>
+        <p class="text-medium">
+          <span class="font-medium">Feels like </span>{{ weatherInfo.feels_like_in_kelvin }}
+        </p>
+      </div>
+    </div>
   </main>
 </template>
