@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRoute } from "vue-router";
+import UserWeatherInfoCard from "@/components/UserWeatherInfoCard.vue";
 
-let weather: any = ref({});
-let user: any = ref("");
+let weatherInfo: any = ref({});
 
 onCreate();
 
@@ -14,16 +14,15 @@ function onCreate() {
 async function getWeather() {
   const route = useRoute();
   const userId = route.params.user;
-  const url = "http://localhost:8001/weather/" + userId;
-
+  const base_url = "http://localhost:8001";
+  const url = base_url + "/users/" + userId + "/weather-info";
   try {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error("Network error");
     }
-    const data = await response.json();
-    weather.value = data.weather;
-    user.value = data.user;
+    const responseData = await response.json();
+    weatherInfo.value = responseData.data;
   } catch (error) {
     alert("Error getting weather: " + error);
   }
@@ -31,10 +30,7 @@ async function getWeather() {
 </script>
 
 <template>
-  <main>
-    <h1>Weather</h1>
-    <p>User: {{ user.name }}</p>
-    <p>Location: {{ weather.name }}, {{ weather.sys.country }}</p>
-    <p>Temperature: {{ weather.main.temp }} K</p>
+  <main class="bg-gradient-to-r from-blue-100 to-cyan-100 flex justify-center">
+    <UserWeatherInfoCard :weather-info="weatherInfo"></UserWeatherInfoCard>
   </main>
 </template>

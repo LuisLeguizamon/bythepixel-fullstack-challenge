@@ -23,4 +23,5 @@ Route::get('/', function () {
 });
 
 Route::get('/users/weather-info', [UserWeatherInfoController::class, 'index'])->name('weather.index');
+Route::get('/users/{user}/weather-info', [UserWeatherInfoController::class, 'show'])->name('weather.show');
 Route::get('/weather/{user}', [WeatherController::class, 'show'])->name('weather.show');
