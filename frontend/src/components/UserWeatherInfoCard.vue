@@ -4,6 +4,10 @@ defineProps({
     type: Object,
     default: null,
   },
+  showDetailBtn: {
+    type: Boolean,
+    default: true,
+  },
 });
 </script>
 <template>
@@ -17,7 +21,7 @@ defineProps({
       <p class="my-5 text-slate-500 text-medium">
         <span class="font-medium">Location</span> {{ weatherInfo.location }}
       </p>
-      <p class="my-5">
+      <p class="my-5" v-if="showDetailBtn">
         <router-link
           class="text-sm text-sky-600 hover:text-sky-800 transition ease-in-out delay-100"
           :to="'/user-weather-info/' + weatherInfo.id"

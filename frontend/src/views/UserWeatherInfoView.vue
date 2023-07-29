@@ -31,6 +31,9 @@ async function getWeather() {
 
 <template>
   <main class="bg-gradient-to-r from-blue-100 to-cyan-100 flex justify-center">
-    <UserWeatherInfoCard :weather-info="weatherInfo"></UserWeatherInfoCard>
+    <UserWeatherInfoCard
+      :weather-info="weatherInfo"
+      :showDetailBtn="false"
+    ></UserWeatherInfoCard>
   </main>
 </template>
