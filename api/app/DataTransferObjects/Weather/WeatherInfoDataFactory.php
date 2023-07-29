@@ -12,7 +12,10 @@ class WeatherInfoDataFactory
         return new WeatherInfoData(
             $userId,
             $responseObject->main->temp,
-            $responseObject->name
+            $responseObject->name,
+            $responseObject->weather[0]->description,
+            $responseObject->main->feels_like,
+            $responseObject->main->humidity,
         );
     }
 }

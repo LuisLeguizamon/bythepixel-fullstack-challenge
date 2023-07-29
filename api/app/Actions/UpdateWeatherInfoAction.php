@@ -12,6 +12,9 @@ class UpdateWeatherInfoAction
         $weatherInfo->user_id = $weatherInfoData->userId;
         $weatherInfo->temperature_in_kelvin = $weatherInfoData->temperatureInKelvin;
         $weatherInfo->location = $weatherInfoData->location;
+        $weatherInfo->description = $weatherInfoData->description;
+        $weatherInfo->feels_like_in_kelvin = $weatherInfoData->feelsLikeInKelvin;
+        $weatherInfo->humidity = $weatherInfoData->humidity;
         $weatherInfo->save();
     }
 }
