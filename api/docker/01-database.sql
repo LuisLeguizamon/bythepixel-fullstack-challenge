@@ -1,2 +1,2 @@
-CREATE DATABASE IF NOT EXISTS `fullstack_challenge`;
-CREATE DATABASE IF NOT EXISTS `fullstack_challenge_test`;
+CREATE DATABASE IF NOT EXISTS `weather_info`;
+CREATE DATABASE IF NOT EXISTS `weather_info_test`;
