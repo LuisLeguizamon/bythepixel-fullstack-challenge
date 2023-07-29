@@ -22,6 +22,15 @@ class UserWeatherInfoResource extends JsonResource
             'description' => ucfirst($this->weatherInfo->description),
             'feels_like_in_kelvin' => $this->weatherInfo->feels_like_in_kelvin.' K',
             'humidity' => $this->weatherInfo->humidity.' %',
+            'is_cloudy' => $this->isCloudy(),
         ];
+    }
+
+    private function isCloudy()
+    {
+        if (stripos($this->weatherInfo->description, 'cloud') !== false) {
+            return true;
+        }
+        return false;
     }
 }
