@@ -1,34 +1,25 @@
-<script lang="ts">
-import UserWeatherInfoCard from './UserWeatherInfoCard.vue';
-export default {
-  components: {
-    UserWeatherInfoCard
-  },
-  data: () => ({
-    usersWeatherInfo: null as any,
-  }),
+<script setup lang="ts">
+import { ref } from "vue";
+import UserWeatherInfoCard from "./UserWeatherInfoCard.vue";
 
-  created() {
-    this.getUsers();
-  },
+const usersWeatherInfo: any = ref(null);
 
-  methods: {
-    async getUsers() {
-      const base_url = "http://localhost:8001";
-      const url = base_url + "/users/weather-info";
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error("Network error");
-        }
-        const responseData = await response.json();
-        this.usersWeatherInfo = responseData.data;
-      } catch (error) {
-        alert("Error getting users: " + error);
-      }
-    },
-  },
-};
+getUsers();
+
+async function getUsers() {
+  const base_url = "http://localhost:8001";
+  const url = base_url + "/users/weather-info";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Network error");
+    }
+    const responseData = await response.json();
+    usersWeatherInfo.value = responseData.data;
+  } catch (error) {
+    alert("Error getting users: " + error);
+  }
+}
 </script>
 <template>
   <div>
