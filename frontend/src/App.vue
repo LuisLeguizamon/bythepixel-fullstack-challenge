@@ -4,15 +4,14 @@ import { RouterLink, RouterView } from "vue-router";
 
 <template>
   <header>
-    <div class="wrapper">
+    <div class="wrapper p-2 bg-white text-slate-600 font-sm">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <span class="pr-5 uppercase text-slate-400">Weather Info</span>
+        <RouterLink to="/" class="hover:text-slate-500"> Home </RouterLink>
       </nav>
     </div>
   </header>
   <RouterView />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
