@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/users/weather-info', [UserWeatherInfoController::class, 'index'])->name('weather.index');
-Route::get('/users/{user}/weather-info', [UserWeatherInfoController::class, 'show'])->name('weather.show');
+Route::controller(UserWeatherInfoController::class)->group(function() {
+    Route::get('/users/weather-info', 'index')->name('weather.index');
+    Route::get('/users/{user}/weather-info', 'show')->name('weather.show');
+});
