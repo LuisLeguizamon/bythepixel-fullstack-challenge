@@ -9,7 +9,7 @@ class CreateOrUpdateWeatherInfoAction
 {
     public function __invoke(WeatherInfoData $weatherInfoData): void
     {
-        $weatherInfo = WeatherInfo::where('user_id', $weatherInfoData->userId)->first();
+        $weatherInfo = (new FetchWeatherInfoByUserId)($weatherInfoData->userId);
         if (isset($weatherInfo)) {
             (new UpdateWeatherInfoAction)($weatherInfo, $weatherInfoData);
         } else {

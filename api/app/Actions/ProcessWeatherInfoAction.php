@@ -10,7 +10,7 @@ class ProcessWeatherInfoAction
 {
     public function __invoke(int $userId): void
     {
-        $user = User::find($userId);
+        $user = (new FetchUserByIdAction)($userId);
         $response = (new GetWeatherByLocationService)->execute($user->latitude, $user->longitude);
         $weatherInfoData = (new WeatherInfoDataFactory)->fromApiResponse($userId, $response);
         (new CreateOrUpdateWeatherInfoAction)($weatherInfoData);
