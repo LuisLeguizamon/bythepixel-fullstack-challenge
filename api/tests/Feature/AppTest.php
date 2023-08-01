@@ -6,12 +6,12 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class AppTest extends TestCase
 {
     use RefreshDatabase;
 
     /**
-     * A basic test example.
+     * A basic test.
      *
      * @return void
      */
