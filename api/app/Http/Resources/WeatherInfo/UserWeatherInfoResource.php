@@ -25,6 +25,7 @@ class UserWeatherInfoResource extends JsonResource
             'user_name' => $this->name,
             'location' => $this->weatherInfo->location ? $this->weatherInfo->location : '------',
             'temperature_in_kelvin' => $this->weatherInfo->temperature_in_kelvin . ' K',
+            'temperature_in_celsius' => $this->weatherInfo->temperature_in_celsius . ' °C',
             'description' => ucfirst($this->weatherInfo->description),
             'feels_like_in_kelvin' => $this->weatherInfo->feels_like_in_kelvin . ' K',
             'humidity' => $this->weatherInfo->humidity . ' %',

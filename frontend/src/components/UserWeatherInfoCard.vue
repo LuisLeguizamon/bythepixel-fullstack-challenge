@@ -44,9 +44,15 @@ defineProps({
         </router-link>
       </p>
     </div>
-    <div>
-      <p class="text-slate-500 text-4xl font-medium">
-        {{ weatherInfo.temperature_in_kelvin }}
+    <div class="font-medium text-4xl text-slate-500">
+      <p>
+        <span class="text-slate-700 text-3xl">
+          {{ weatherInfo.temperature_in_celsius }}
+        </span>
+        <span class="text-slate-400"> | </span>
+        <span class="text-slate-500 text-3xl">
+          {{ weatherInfo.temperature_in_kelvin }}
+        </span>
       </p>
     </div>
   </div>

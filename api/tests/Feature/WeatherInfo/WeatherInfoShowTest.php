@@ -32,6 +32,7 @@ class WeatherInfoShowTest extends TestCase
                         'user_name' => 'string',
                         'location' => 'string',
                         'temperature_in_kelvin' => 'string',
+                        'temperature_in_celsius' => 'string',
                         'description' => 'string',
                         'feels_like_in_kelvin' => 'string',
                         'humidity' => 'string',

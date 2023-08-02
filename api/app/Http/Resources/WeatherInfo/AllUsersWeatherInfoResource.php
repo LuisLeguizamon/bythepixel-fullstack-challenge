@@ -25,6 +25,7 @@ class AllUsersWeatherInfoResource extends JsonResource
             'user_name' => $this->name,
             'location' => $this->weatherInfo->location ? $this->weatherInfo->location : '------',
             'temperature_in_kelvin' => $this->weatherInfo->temperature_in_kelvin . ' K',
+            'temperature_in_celsius' => $this->weatherInfo->temperature_in_celsius . ' °C',
         ];
     }
 }
