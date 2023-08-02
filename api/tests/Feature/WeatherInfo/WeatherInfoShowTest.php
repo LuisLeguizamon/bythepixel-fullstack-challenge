@@ -28,7 +28,7 @@ class WeatherInfoShowTest extends TestCase
             ->assertJson(function (AssertableJson $json) use ($user) {
                 $json->has('data', function (AssertableJson $json) use ($user) {
                     $json->whereAllType([
-                        'id' => 'integer',
+                        'user_id' => 'integer',
                         'user_name' => 'string',
                         'location' => 'string',
                         'temperature_in_kelvin' => 'string',
@@ -37,7 +37,7 @@ class WeatherInfoShowTest extends TestCase
                         'humidity' => 'string',
                         'is_cloudy' => 'boolean',
                     ])
-                        ->where('id', $user->id);
+                        ->where('user_id', $user->id);
                 });
             });
     }
