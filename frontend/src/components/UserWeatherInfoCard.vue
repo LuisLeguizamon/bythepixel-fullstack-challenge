@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
+let tempInKelvin = ref(false);
+
 defineProps({
   weatherInfo: {
     type: Object,
@@ -9,6 +13,10 @@ defineProps({
     default: true,
   },
 });
+
+function showTempInKelvin(){
+  tempInKelvin.value = true;
+}
 </script>
 <template>
   <div
@@ -44,10 +52,39 @@ defineProps({
         </router-link>
       </p>
     </div>
-    <div>
-      <p class="text-slate-500 text-4xl font-medium">
-        {{ weatherInfo.temperature_in_kelvin }}
+    <div class="font-medium text-4xl text-slate-500">
+      <p>
+        <span class="text-slate-700 text-3xl" v-show="!tempInKelvin">
+          {{ weatherInfo.temperature_in_celsius }}
+        </span>
+        <Transition>
+          <span v-if="tempInKelvin" class="text-slate-500 text-3xl">
+            {{ weatherInfo.temperature_in_kelvin }}
+          </span>
+        </Transition>
+        <Transition>
+          <span v-if="!tempInKelvin">
+            <span  class="text-slate-400"> | </span>
+            <span
+              class="text-xl cursor-pointer hover:text-slate-900 transition-colors"
+              @click="showTempInKelvin()"
+            >
+              K
+            </span>
+          </span>
+        </Transition>
       </p>
     </div>
   </div>
 </template>
+<style scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+</style>

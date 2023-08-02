@@ -40,7 +40,7 @@ defineProps({
     </div>
     <div>
       <p class="text-medium">
-        <span class="font-medium">Feels like </span>{{ weatherInfo.feels_like_in_kelvin }}
+        <span class="font-medium">Feels like </span>{{ weatherInfo.feels_like_in_celsius }}
       </p>
     </div>
   </div>
