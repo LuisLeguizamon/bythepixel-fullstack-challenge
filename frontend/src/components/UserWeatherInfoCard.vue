@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
+let tempInKelvin = ref(false);
+
 defineProps({
   weatherInfo: {
     type: Object,
@@ -9,6 +13,10 @@ defineProps({
     default: true,
   },
 });
+
+function showTempInKelvin(){
+  tempInKelvin.value = true;
+}
 </script>
 <template>
   <div
@@ -46,13 +54,23 @@ defineProps({
     </div>
     <div class="font-medium text-4xl text-slate-500">
       <p>
-        <span class="text-slate-700 text-3xl">
+        <span class="text-slate-700 text-3xl" v-show="!tempInKelvin">
           {{ weatherInfo.temperature_in_celsius }}
         </span>
-        <span class="text-slate-400"> | </span>
-        <span class="text-slate-500 text-3xl">
-          {{ weatherInfo.temperature_in_kelvin }}
-        </span>
+        <template v-if="tempInKelvin">
+          <span class="text-slate-500 text-3xl">
+            {{ weatherInfo.temperature_in_kelvin }}
+          </span>
+        </template>
+        <template v-else>
+          <span class="text-slate-400"> | </span>
+          <span
+            class="text-xl cursor-pointer hover:text-slate-900 transition-colors"
+            @click="showTempInKelvin()"
+          >
+            K
+          </span>
+        </template>
       </p>
     </div>
   </div>
