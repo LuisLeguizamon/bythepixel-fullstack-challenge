@@ -57,21 +57,34 @@ function showTempInKelvin(){
         <span class="text-slate-700 text-3xl" v-show="!tempInKelvin">
           {{ weatherInfo.temperature_in_celsius }}
         </span>
-        <template v-if="tempInKelvin">
-          <span class="text-slate-500 text-3xl">
+        <Transition>
+          <span v-if="tempInKelvin" class="text-slate-500 text-3xl">
             {{ weatherInfo.temperature_in_kelvin }}
           </span>
-        </template>
-        <template v-else>
-          <span class="text-slate-400"> | </span>
-          <span
-            class="text-xl cursor-pointer hover:text-slate-900 transition-colors"
-            @click="showTempInKelvin()"
-          >
-            K
+        </Transition>
+        <Transition>
+          <span v-if="!tempInKelvin">
+            <span  class="text-slate-400"> | </span>
+            <span
+              class="text-xl cursor-pointer hover:text-slate-900 transition-colors"
+              @click="showTempInKelvin()"
+            >
+              K
+            </span>
           </span>
-        </template>
+        </Transition>
       </p>
     </div>
   </div>
 </template>
+<style scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+</style>
