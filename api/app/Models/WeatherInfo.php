@@ -10,4 +10,9 @@ class WeatherInfo extends Model
     use HasFactory;
 
     protected $table = 'weather_info';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
