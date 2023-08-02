@@ -3,7 +3,6 @@
 namespace App\Actions;
 
 use App\DataTransferObjects\Weather\WeatherInfoData;
-use App\Models\WeatherInfo;
 
 class CreateOrUpdateWeatherInfoAction
 {

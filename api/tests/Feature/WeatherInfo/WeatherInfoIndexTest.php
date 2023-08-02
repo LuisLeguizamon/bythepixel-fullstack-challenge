@@ -6,9 +6,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class WeatherInfoTest extends TestCase
+class WeatherInfoIndexTest extends TestCase
 {
-    public function test_weather_info_screen_can_be_rendered(): void
+    use RefreshDatabase;
+
+    public function test_index_returns_a_successful_response()
     {
         $response = $this->get('/users/weather-info');
 
