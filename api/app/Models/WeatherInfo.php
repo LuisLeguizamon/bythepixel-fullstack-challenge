@@ -22,4 +22,11 @@ class WeatherInfo extends Model
 
         return round($temp, 0);
     }
+
+    public function getFeelsLikeInCelsiusAttribute()
+    {
+        $temp = (float)$this->feels_like_in_kelvin - 273.15;
+
+        return round($temp, 0);
+    }
 }
